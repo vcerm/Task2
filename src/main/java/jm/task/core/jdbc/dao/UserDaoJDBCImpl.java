@@ -15,13 +15,12 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         try (Connection c = Util.getConnection()) {
-            String sql = "CREATE TABLE IF NOT EXISTS task1\n" +
-                    "(\n" +
-                    "    ID       bigint unsigned auto_increment\n" +
-                    "        primary key,\n" +
-                    "    Name     varchar(255) null,\n" +
-                    "    LastName varchar(255) null,\n" +
-                    "    Age      int          null\n" +
+            String sql = "CREATE TABLE IF NOT EXISTS task1" +
+                    "(    ID       bigint unsigned auto_increment" +
+                    "        primary key," +
+                    "    Name     varchar(255) null," +
+                    "    LastName varchar(255) null," +
+                    "    Age      int          null" +
                     ")";
             Statement s = c.createStatement();
             s.execute(sql);
@@ -44,7 +43,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection c = Util.getConnection()) {
             String sql = "INSERT INTO task1 (Name, LastName, Age) VALUES (?, ?, ?)";
             PreparedStatement ps = c.prepareStatement(sql);
-            ps.setString(1,name);
+            ps.setString(1, name);
             ps.setString(2, lastName);
             ps.setByte(3, age);
             ps.executeUpdate();
